@@ -157,3 +157,95 @@ footer {
   justify-content: center;
   gap: 3rem;
 }
+
+<!-- MENÚ HAMBURGUESA -->
+<input type="checkbox" id="menu-toggle" />
+
+<label for="menu-toggle" class="menu-icon">
+  <span></span>
+  <span></span>
+  <span></span>
+</label>
+
+<nav class="menu">
+  <a href="#trabaja">Trabaja con nosotros</a>
+</nav>
+2️⃣ HTML (sección “Trabaja con nosotros”)
+Antes del <footer>, agrega esta sección:
+
+html
+Copiar código
+<section class="section light" id="trabaja">
+  <h2>Trabaja con nosotros</h2>
+  <p>
+    Buscamos personas comprometidas con la protección y el bienestar de la fauna
+    silvestre. Si deseas colaborar como voluntario o apoyar nuestra labor,
+    tu ayuda puede marcar la diferencia.
+  </p>
+
+  <div style="text-align: center; margin-top: 2rem;">
+    <a href="mailto:contacto@refugioanimalcr.org" class="btn">
+      Contáctanos
+    </a>
+  </div>
+</section>
+(Luego cambiamos el correo por el real, sin problema.)
+
+3️⃣ CSS del menú ☰
+Al final de tu style.css, pega esto:
+
+css
+Copiar código
+/* MENÚ HAMBURGUESA */
+#menu-toggle {
+  display: none;
+}
+
+.menu-icon {
+  position: fixed;
+  top: 25px;
+  right: 25px;
+  width: 32px;
+  height: 22px;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+.menu-icon span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: white;
+  margin-bottom: 5px;
+  border-radius: 2px;
+}
+
+/* Trabaja con Nosotros */
+.menu {
+  position: fixed;
+  top: 0;
+  right: -240px;
+  width: 220px;
+  height: 100vh;
+  background-color: #1b1b1b;
+  padding-top: 90px;
+  transition: right 0.3s ease;
+  z-index: 1000;
+}
+
+.menu a {
+  display: block;
+  padding: 1rem 2rem;
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+
+.menu a:hover {
+  background-color: #2e7d32;
+}
+
+/* MOSTRAR MENÚ */
+#menu-toggle:checked ~ .menu {
+  right: 0;
+}
