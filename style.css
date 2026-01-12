@@ -221,16 +221,47 @@ Copiar código
 }
 
 /* Trabaja con Nosotros */
+#menu-toggle {
+  display: none;
+}
+
+.menu-icon {
+  position: fixed;
+  top: 25px;
+  width: 32px;
+  height: 22px;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+.menu-icon.left {
+  left: 25px;
+}
+
+.menu-icon span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: white;
+  margin-bottom: 5px;
+  border-radius: 2px;
+}
+
+/* MENÚ DESPLEGABLE DESDE IZQUIERDA */
 .menu {
   position: fixed;
   top: 0;
-  right: -240px;
+  left: -240px;
   width: 220px;
   height: 100vh;
   background-color: #1b1b1b;
   padding-top: 90px;
-  transition: right 0.3s ease;
+  transition: left 0.3s ease;
   z-index: 1000;
+}
+
+.menu.left {
+  left: -240px;
 }
 
 .menu a {
@@ -246,6 +277,6 @@ Copiar código
 }
 
 /* MOSTRAR MENÚ */
-#menu-toggle:checked ~ .menu {
-  right: 0;
+#menu-toggle:checked ~ .menu.left {
+  left: 0;
 }
