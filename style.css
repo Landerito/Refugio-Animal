@@ -1,4 +1,4 @@
-/* RESET BÁSICO */
+/* RESET */
 * {
   margin: 0;
   padding: 0;
@@ -12,11 +12,65 @@ body {
   background-color: #f4f6f4;
 }
 
-/* HERO / PORTADA */
+/* MENÚ HAMBURGUESA */
+.menu-wrapper {
+  position: fixed;
+  top: 25px;
+  left: 25px;
+  z-index: 9999;
+}
+
+#menu-toggle {
+  display: none;
+}
+
+.menu-btn {
+  width: 36px;
+  height: 26px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.menu-btn span {
+  height: 4px;
+  width: 100%;
+  background-color: white;
+  border-radius: 2px;
+}
+
+/* DROPDOWN */
+.dropdown-menu {
+  display: none;
+  margin-top: 12px;
+  background-color: #1b1b1b;
+  border-radius: 8px;
+  min-width: 220px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 1rem;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.dropdown-menu a:hover {
+  background-color: #2e7d32;
+}
+
+#menu-toggle:checked ~ .dropdown-menu {
+  display: block;
+}
+
+/* HERO */
 .hero {
   min-height: 100vh;
   background-image:
-    linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
+    linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
     url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee");
   background-size: cover;
   background-position: center;
@@ -38,23 +92,6 @@ body {
 .hero p {
   max-width: 700px;
   font-size: 1.2rem;
-  margin-bottom: 2rem;
-}
-
-/* BOTÓN */
-.btn {
-  background-color: #4caf50;
-  color: white;
-  padding: 0.9rem 2rem;
-  text-decoration: none;
-  border-radius: 30px;
-  font-weight: bold;
-  transition: background 0.3s ease, transform 0.2s ease;
-}
-
-.btn:hover {
-  background-color: #3e8e41;
-  transform: translateY(-2px);
 }
 
 /* SECCIONES */
@@ -62,6 +99,10 @@ body {
   padding: 4rem 2rem;
   max-width: 1100px;
   margin: auto;
+}
+
+.section.light {
+  background-color: #ffffff;
 }
 
 .section h2 {
@@ -73,14 +114,19 @@ body {
 
 .section p,
 .section ul {
-  font-size: 1.05rem;
   max-width: 800px;
   margin: auto;
+  font-size: 1.05rem;
 }
 
-/* SECCIÓN CLARA */
-.section.light {
-  background-color: #ffffff;
+.section ul {
+  list-style: none;
+  text-align: center;
+}
+
+.section ul li {
+  margin-bottom: 1rem;
+  font-weight: 500;
 }
 
 /* TARJETAS */
@@ -96,7 +142,7 @@ body {
   padding: 2rem;
   border-radius: 12px;
   text-align: center;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
 }
 
 .card h3 {
@@ -104,15 +150,18 @@ body {
   margin-bottom: 1rem;
 }
 
-/* LISTA */
-.section ul {
-  list-style: none;
-  text-align: center;
+/* BOTÓN */
+.btn {
+  background-color: #4caf50;
+  color: white;
+  padding: 0.9rem 2rem;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: bold;
 }
 
-.section ul li {
-  margin-bottom: 1rem;
-  font-weight: 500;
+.btn:hover {
+  background-color: #3e8e41;
 }
 
 /* DONAR */
@@ -121,17 +170,24 @@ body {
   text-align: center;
 }
 
-.donate p {
-  margin-bottom: 2rem;
-}
-
 /* FOOTER */
 footer {
   background-color: #1b1b1b;
   color: #cccccc;
   text-align: center;
   padding: 2rem 1rem;
-  font-size: 0.9rem;
+}
+
+.socials {
+  margin-top: 1.2rem;
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.socials a {
+  color: #cccccc;
+  font-size: 2.2rem;
 }
 
 /* RESPONSIVE */
@@ -143,139 +199,4 @@ footer {
   .hero p {
     font-size: 1rem;
   }
-}
-
-.socials a {
-  color: #cccccc;
-  font-size: 2.2rem;
-  transition: color 0.3s ease, transform 0.2s ease;
-}
-
-.socials {
-  margin-top: 1.2rem;
-  display: flex;
-  justify-content: center;
-  gap: 3rem;
-}
-
-<!-- MENÚ HAMBURGUESA -->
-<input type="checkbox" id="menu-toggle" />
-
-<label for="menu-toggle" class="menu-icon">
-  <span></span>
-  <span></span>
-  <span></span>
-</label>
-
-<nav class="menu">
-  <a href="#trabaja">Trabaja con nosotros</a>
-</nav>
-2️⃣ HTML (sección “Trabaja con nosotros”)
-Antes del <footer>, agrega esta sección:
-
-html
-Copiar código
-<section class="section light" id="trabaja">
-  <h2>Trabaja con nosotros</h2>
-  <p>
-    Buscamos personas comprometidas con la protección y el bienestar de la fauna
-    silvestre. Si deseas colaborar como voluntario o apoyar nuestra labor,
-    tu ayuda puede marcar la diferencia.
-  </p>
-
-  <div style="text-align: center; margin-top: 2rem;">
-    <a href="mailto:contacto@refugioanimalcr.org" class="btn">
-      Contáctanos
-    </a>
-  </div>
-</section>
-(Luego cambiamos el correo por el real, sin problema.)
-
-3️⃣ CSS del menú ☰
-Al final de tu style.css, pega esto:
-
-css
-Copiar código
-/* MENÚ HAMBURGUESA */
-#menu-toggle {
-  display: none;
-}
-
-.menu-icon {
-  position: fixed;
-  top: 25px;
-  right: 25px;
-  width: 32px;
-  height: 22px;
-  cursor: pointer;
-  z-index: 1100;
-}
-
-.menu-icon span {
-  display: block;
-  height: 3px;
-  width: 100%;
-  background-color: white;
-  margin-bottom: 5px;
-  border-radius: 2px;
-}
-
-
-/* BOTÓN MENÚ (DROPDOWN) */
-/* Trabaja con Nosotros */
-.menu-wrapper {
-  position: fixed;
-  top: 25px;
-  left: 25px;
-  z-index: 1200;
-}
-
-#menu-toggle {
-  display: none;
-}
-
-.menu-btn {
-  width: 34px;
-  cursor: pointer;
-}
-
-.menu-btn span {
-  display: block;
-  height: 3px;
-  width: 100%;
-  background-color: white;
-  margin-bottom: 6px;
-  border-radius: 2px;
-}
-
-/* MENÚ FLOTANTE */
-.dropdown-menu {
-  display: none;
-  margin-top: 10px;
-  background-color: #1b1b1b;
-  border-radius: 8px;
-  min-width: 200px;
-  overflow: hidden;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-}
-
-.dropdown-menu a {
-  display: block;
-  padding: 1rem;
-  color: white;
-  text-decoration: none;
-  font-size: 1rem;
-}
-
-.dropdown-menu a:hover {
-  background-color: #2e7d32;
-}
-
-/* MOSTRAR DROPDOWN */
-#menu-toggle:checked ~ .dropdown-menu {
-  display: block;
-}
-
-.menu-btn span {
-  background-color: #ffffff;
 }
