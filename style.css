@@ -272,6 +272,10 @@ Copiar código
 }
 
 /* MOSTRAR DROPDOWN */
-#menu-toggle:checked + .menu-btn + .dropdown-menu {
+#menu-toggle:checked ~ .dropdown-menu {
   display: block;
+}
+
+.menu-btn span {
+  background-color: #ffffff;
 }
